@@ -12,7 +12,7 @@
           </li>
           <li>
             <button type="button" class="navbar-toggle">
-              <img class="profile-img" src="{{asset('images/profile.png')}}">
+              <img class="profile-img" src="{{asset('images/user.png')}}">
             </button>
           </li>
         </ul>
@@ -127,7 +127,7 @@
           </li> --}}
           <li class="dropdown profile">
             <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
-              <img class="profile-img" src="{{asset('images/profile.png')}}">
+              <img class="profile-img" src="{{asset('images/user.png')}}">
               <div class="title">Profile</div>
             </a>
             <div class="dropdown-menu">
@@ -136,19 +136,13 @@
               </div>
               <ul class="action">
                 <li>
-                  <a href="{{url('profile')}}">
-                    Profile
-                  </a>
+                  <a href="{{url('profile/'.AUth::user()->id)}}">Profile</a>
                 </li>
                 <li>
-                  <a href="{{url('setting')}}">
-                    Setting
-                  </a>
+                  <a href="{{url('setting')}}">Setting</a>
                 </li>
                 <li>
-                  <a href="#">
-                    Logout
-                  </a>
+                  <a href="{{url('logout')}}">Logout</a>
                 </li>
               </ul>
             </div>

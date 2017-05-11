@@ -14,74 +14,26 @@
                       <table class="datatable table table-striped primary" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th class="text-center">Name</th>
+                                <th class="text-center">Nama</th>
+                                <th class="text-center">Email</th>
                                 <th class="text-center">Alamat</th>
-                                <th class="text-center">Age</th>
-                                <th class="text-center">Tanggal Gabung</th>
+                                <th class="text-center">Umur</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($user as $data)
                             <tr>
-                                <td class="text-center">Ashton Cox</td>
-                                <td class="text-center">San Francisco</td>
-                                <td class="text-center">66</td>
-                                <td class="text-center">2009/01/12</td>
+                                <td class="text-center">{{$data->name}}</td>
+                                <td class="text-center">{{$data->email}}</td>
+                                <td class="text-center">{{$data->alamat}}</td>
+                                <td class="text-center">{{$data->umur}}</td>
                                 <td class="text-center">
-                                    <a href="{{url('delete/profile')}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin me-nonaktifkan user ini ?')">Non Aktif</a>
-                                    <a href="{{url('profile')}}" class="btn btn btn-sm btn-info">View</a>
+                                    <a href="{{url('delete/profile/'.$data->id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin menghapus user ini ?')">Hapus</a>
+                                    <a href="{{url('profile/'.$data->id)}}" class="btn btn btn-sm btn-info">View</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center">Ashton Cox</td>
-                                <td class="text-center">San Francisco</td>
-                                <td class="text-center">66</td>
-                                <td class="text-center">2009/01/12</td>
-                                <td class="text-center">
-                                    <a href="{{url('delete/profile')}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin me-nonaktifkan user ini ?')">Non Aktif</a>
-                                    <a href="{{url('profile')}}" class="btn btn btn-sm btn-info">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Ashton Cox</td>
-                                <td class="text-center">San Francisco</td>
-                                <td class="text-center">66</td>
-                                <td class="text-center">2009/01/12</td>
-                                <td class="text-center">
-                                    <a href="{{url('delete/profile')}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin me-nonaktifkan user ini ?')">Non Aktif</a>
-                                    <a href="{{url('profile')}}" class="btn btn btn-sm btn-info">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Ashton Cox</td>
-                                <td class="text-center">San Francisco</td>
-                                <td class="text-center">66</td>
-                                <td class="text-center">2009/01/12</td>
-                                <td class="text-center">
-                                    <a href="{{url('delete/profile')}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin me-nonaktifkan user ini ?')">Non Aktif</a>
-                                    <a href="{{url('profile')}}" class="btn btn btn-sm btn-info">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Ashton Cox</td>
-                                <td class="text-center">San Francisco</td>
-                                <td class="text-center">66</td>
-                                <td class="text-center">2009/01/12</td>
-                                <td class="text-center">
-                                    <a href="{{url('delete/profile')}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin me-nonaktifkan user ini ?')">Non Aktif</a>
-                                    <a href="{{url('profile')}}" class="btn btn btn-sm btn-info">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Ashton Cox</td>
-                                <td class="text-center">San Francisco</td>
-                                <td class="text-center">66</td>
-                                <td class="text-center">2009/01/12</td>
-                                <td class="text-center">
-                                    <a href="{{url('delete/profile')}}" class="btn btn-sm btn-danger" onclick="return confirm('Apa anda yakin ingin me-nonaktifkan user ini ?')">Non Aktif</a>
-                                    <a href="{{url('profile')}}" class="btn btn btn-sm btn-info">View</a>
-                                </td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

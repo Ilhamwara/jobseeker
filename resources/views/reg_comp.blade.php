@@ -14,25 +14,25 @@
                             </b>
                         </div>
                         @include('include.alert')
-                        <form action="{{url('register')}}" method="POST">
+                        <form action="{{url('register/perusahaan')}}" method="POST">
                             {{csrf_field()}}
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <i aria-hidden="true" class="fa fa-paper-plane"></i>
                                 </span>
-                                <input class="form-control" name="nama" placeholder="Fullname" required type="text"></input>
+                                <input type="text" class="form-control" name="nama" placeholder="Fullname" required></input>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2">
                                     <i aria-hidden="true" class="fa fa-envelope"></i>
                                 </span>
-                                <input class="form-control" placeholder="Email" required name="email" type="email"></input>
+                                <input type="email" class="form-control" placeholder="Email" required name="email"></input>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon3">
                                     <i aria-hidden="true" class="fa fa-key"></i>
                                 </span>
-                                <input class="form-control" placeholder="Password" required name="password" type="password"></input>
+                                <input type="password" class="form-control" placeholder="Password" required name="password"></input>
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-success btn-submit">Register</button>

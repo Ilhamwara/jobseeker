@@ -36,16 +36,18 @@
 						<div class="form-suggestion">
 							<b>Login Disini</b>
 						</div>
-						<form action="/" method="POST">
+						@include('include.alert')
+						<form action="{{url('login')}}" method="POST">
+						{{csrf_field()}}
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon2">
-									<i class="fa fa-user" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" placeholder="Username" required>
+									<i class="fa fa-envelope" aria-hidden="true"></i></span>
+									<input type="email" name="email" class="form-control" placeholder="Email" required>
 								</div>
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">
 										<i class="fa fa-key" aria-hidden="true"></i></span>
-										<input type="text" class="form-control" placeholder="Password" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
 									<div class="text-center">
 										<button class="btn btn-primary btn-submit">Login</button>
@@ -54,7 +56,8 @@
 										<div class="title">OR</div>
 									</div>
 									<div class="text-center">
-										<a href="{{asset('register')}}" class="btn btn-success btn-submit">Register</a>
+										<a href="{{asset('register')}}" class="btn btn-success btn-submit">Register Pelamar</a>
+										<a href="{{asset('register/perusahaan')}}" class="btn btn-warning btn-submit">Register Perusahaan</a>
 									</div>
 								</form>
 							</div>

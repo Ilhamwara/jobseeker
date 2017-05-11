@@ -18,39 +18,25 @@
 // Route::get('/home', 'HomeController@index');
 
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('register', function () {
-    return view('register');
-});
+Route::get('/', 'UserController@login');
+Route::post('login', 'UserController@post_login');
+Route::get('register', 'UserController@register');
+Route::post('register', 'UserController@post_register');
+Route::get('register/perusahaan', 'UserController@reg_comp');
+Route::post('register/perusahaan', 'UserController@postreg_comp');
+Route::get('logout', 'UserController@logout');
 
-Route::get('dashboard', function () {
-    return view('dashborad');
-});
-
-Route::get('perusahaan', function () {
-    return view('perusahaan.index');
-});
-Route::get('tambah/perusahaan', function () {
-    return view('perusahaan.tambah');
-});
-
-Route::get('pekerja', function () {
-    return view('pekerja.index');
-});
-Route::get('tambah/pekerjaan', function () {
-    return view('pekerjaan.tambah');
-});
-
-Route::get('profile', function () {
-    return view('user.profile');
-});
-Route::get('setting', function () {
-    return view('user.setting');
-});
-
-Route::get('history', function () {
-    return view('history.index');
+Route::group(['middleware' => ['authnya']], function () {
+    Route::get('dashboard', 'UserController@dashboard');
+    Route::get('perusahaan', 'UserController@perusahaan');
+    Route::get('pekerja', 'UserController@pekerja');
+    Route::get('profile/{id}','UserController@profile');
+    Route::get('delete/profile/{id}','UserController@delete_profile');
+    Route::get('setting', 'UserController@setting');
+    Route::post('setting', 'UserController@post_setting');
+    Route::get('daftar-pekerjaan', 'UserController@job');
+    Route::get('tambah/pekerjaan', 'UserController@add_job');
+    Route::post('tambah/pekerjaan', 'UserController@postadd_job');
+    Route::get('history', 'UserController@history');
 });
 

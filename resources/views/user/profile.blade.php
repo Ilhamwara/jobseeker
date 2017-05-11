@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('content')
+<style>
+    .pengalaman{margin-bottom: 30px;}
+</style>
 <div class="app app-default">
     @include('include.sidebar')
     <div class="app-container">
@@ -8,13 +11,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body app-heading">
-                        <img class="profile-img" src="{{url('images/profile.png')}}">
+                        <img class="profile-img" src="{{url('images/user.png')}}">
                         <div class="app-title">
-                            <div class="title"><span class="highlight"><b>Scott White</b></span></div>
-                            <div class="description"><i><b>PHP</b>, <b>HTML5</b>, <b>JSON</b>, <b>AJAX</b>, <b>CSS3</b>, <b>LARAVEL</b></i></div>
-                            <small class="description"><i>JL Madukara Kel.Makasar Kec.Makasar </i></small> <br>
-                            <small class="description"><i>Jakarta Timur, Indonesia</i></small> <br><br>
-                            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-download"></i> Download CV</a>
+                            <div class="title"><span class="highlight"><b>{{$user->name}}</b></span></div>
+                            <div class="description"><i><b>{{$user->grade}}</b></i></div>
+                            <small class="description"><i>{{$user->alamat}} </i></small> <br><br>
+                            <a href="{{asset('upload/'.$user->cv)}}" class="btn btn-primary btn-sm"><i class="fa fa-download"></i> Download CV</a>
                         </div>
                     </div>
                 </div>
@@ -28,7 +30,7 @@
                     </div>
                     <div class="card-body">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero neque perferendis blanditiis itaque. Facere nobis voluptatibus distinctio quasi neque architecto, sit officiis dolorem quae. Officia culpa aperiam exercitationem asperiores ipsum.
+                            {{$user->about}}
                         </p>
                     </div>
                 </div>
@@ -41,24 +43,10 @@
                         <b>Pengalaman</b>
                     </div>
                     <div class="card-body">
-                    <style>
-                        .pengalaman{margin-bottom: 30px;}
-                    </style>
                         <div class="pengalaman">
-                            <h5><b>PT Megaprimatama</b></h5>
-                            <h6>Web Developer</h6>
-                            <h6>Gaji - Rp 4.500.000</h6>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nobis necessitatibus accusamus fugit accusantium molestiae eveniet natus repudiandae cupiditate ut molestias, nesciunt sequi, aperiam architecto minima officia, ad consequuntur nemo.
-                            </p>
-                        </div>
-                        <div class="pengalaman">
-                            <h5><b>PT Megaprimatama</b></h5>
-                            <h6>Web Developer</h6>
-                            <h6>Gaji - Rp 4.500.000</h6>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nobis necessitatibus accusamus fugit accusantium molestiae eveniet natus repudiandae cupiditate ut molestias, nesciunt sequi, aperiam architecto minima officia, ad consequuntur nemo.
-                            </p>
+                            <h5><b>{{$user->perusahaan}}</b></h5>
+                            <h6>{{$user->jabatan}}</h6>
+                            <h6>Gaji - Rp {{number_format($user->gaji)}}</h6>
                         </div>
                     </div>
                 </div>

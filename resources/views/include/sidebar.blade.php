@@ -18,6 +18,7 @@
           <div class="title">Beranda</div>
         </a>
       </li>
+      @if(Auth::user()->level == 'admin')
       <li class="@if(Request::is('pekerja')) active @endif">
         <a href="{{url('pekerja')}}">
           <div class="icon">
@@ -26,6 +27,7 @@
           <div class="title">Pekerja</div>
         </a>
       </li>
+      @endif
       <li class="dropdown @if(Request::is('perusahaan')) active @endif">
         <a href="{{url('perusahaan')}}">
           <div class="icon">
@@ -40,6 +42,7 @@
           </ul>
         </div> --}}
       </li>
+      
       <li class="@if((Request::is('tambah/pekerjaan')) || (Request::is('daftar-pekerjaan')) ) active @endif dropdown">
         <a>
           <div class="icon">
@@ -50,10 +53,13 @@
         <div class="dropdown-menu">
           <ul>
             <li><a href="{{url('daftar-pekerjaan')}}">Daftar Pekerjaan</a></li>
+            @if(Auth::user()->level == 'admin' || Auth::user()->level == 'perusahaan')
             <li><a href="{{url('tambah/pekerjaan')}}">Tambah Pekerjaan</a></li>
+            @endif
           </ul>
         </div>
       </li>
+     {{--  @if(Auth::user()->level == 'admin')
       <li class="@if(Request::is('broadcast')) active @endif">
         <a href="{{url('broadcast')}}">
           <div class="icon">
@@ -62,14 +68,15 @@
           <div class="title">Broadcast Email</div>
         </a>
       </li>
-      <li class="@if(Request::is('history')) active @endif">
+      @endif --}}
+      {{-- <li class="@if(Request::is('history')) active @endif">
         <a href="{{url('history')}}">
           <div class="icon">
             <i class="fa fa-history" aria-hidden="true"></i>
           </div>
           <div class="title">History</div>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </aside>
